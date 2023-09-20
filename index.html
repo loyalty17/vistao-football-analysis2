@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
+    <script src="https://i2djs.github.io/I2Djs/dist/i2d.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Vistao - Heatmap</title>
+  </head>
+  <body>
+    <div id="container">
+      <section class="toolbox">
+        <div>
+          <div onclick="openTab('brushTab')" class="btn tooltip">
+            <sppan class="tooltiptext">Info</sppan>
+            <svg
+              fill="#000000"
+              version="1.1"
+              id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 490.318 490.318"
+              xml:space="preserve"
+            >
+              <g>
+                <g>
+                  <g>
+                    <path
+                      d="M245.148,0C109.967,0,0.009,109.98,0.009,245.162c0,135.182,109.958,245.156,245.139,245.156
+                                          c135.186,0,245.162-109.978,245.162-245.156C490.31,109.98,380.333,0,245.148,0z M245.148,438.415
+                                          c-106.555,0-193.234-86.698-193.234-193.253c0-106.555,86.68-193.258,193.234-193.258c106.559,0,193.258,86.703,193.258,193.258
+                                          C438.406,351.717,351.706,438.415,245.148,438.415z"
+                    />
+                    <path
+                      d="M270.036,221.352h-49.771c-8.351,0-15.131,6.78-15.131,15.118v147.566c0,8.352,6.78,15.119,15.131,15.119h49.771
+                                          c8.351,0,15.131-6.77,15.131-15.119V236.471C285.167,228.133,278.387,221.352,270.036,221.352z"
+                    />
+                    <path
+                      d="M245.148,91.168c-24.48,0-44.336,19.855-44.336,44.336c0,24.484,19.855,44.34,44.336,44.34
+                                          c24.485,0,44.342-19.855,44.342-44.34C289.489,111.023,269.634,91.168,245.148,91.168z"
+                    />
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+          <div onclick="openTab('colorTab')" class="color-icon btn tooltip">
+            <sppan class="tooltiptext">Color Palette</sppan>
+            <svg viewBox="0 0 512 512">
+              <path
+                d="M204.3 5C104.9 24.4 24.8 104.3 5.2 203.4c-37 187 131.7 326.4 258.8 306.7 41.2-6.4 61.4-54.6 42.5-91.7-23.1-45.4 9.9-98.4 60.9-98.4h79.7c35.8 0 64.8-29.6 64.9-65.3C511.5 97.1 368.1-26.9 204.3 5zM96 320c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm32-128c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm128-64c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm128 64c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z"
+              ></path>
+            </svg>
+          </div>
+          <div onclick="changeBrush('pen')" class="btn tooltip">
+            <p class="tooltiptext">Brush</p>
+            <svg fill="#000000" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+              viewBox="0 0 511.862 511.862" xml:space="preserve">
+            <g transform="translate(0 -1)">
+              <g>
+                <g>
+                  <path d="M127.412,316.657c-16.299,1.143-31.727,8.815-41.259,20.531c-7.62,9.361-10.829,20.352-9.276,31.795
+                    c1.451,10.675-2.082,21.154-9.685,28.757c-24.576,24.576-44.988,29.841-57.967,29.841c-0.247,0-0.512-0.034-0.691-0.009
+                    c-3.661,0-6.929,2.347-8.098,5.845c-1.169,3.516,0.068,7.398,3.063,9.583c3.422,2.492,61.798,44.416,119.159,44.416
+                    c23.262,0,46.353-6.895,65.553-26.095c32.606-32.606,34.782-84.506,4.949-118.161
+                    C175.685,323.45,154.087,314.831,127.412,316.657z"/>
+                  <path d="M496.237,42.658l-2.517-2.517c-18.185-18.202-47.667-18.278-67.14-0.137l-11.025,10.402l26.402,26.402
+                    c3.328,3.337,3.328,8.73,0,12.066c-1.673,1.664-3.849,2.5-6.033,2.5c-2.185,0-4.369-0.836-6.033-2.5l-26.76-26.761L390.705,73.83
+                    l27.11,27.11c3.328,3.336,3.328,8.738,0,12.066c-1.673,1.664-3.857,2.5-6.033,2.5c-2.185,0-4.369-0.836-6.033-2.5l-27.469-27.469
+                    L150.082,300.68c21.632,3.379,40.397,13.739,55.851,31.172c18.159,20.471,26.428,46.549,25.131,72.363L496.408,119.27
+                    C517.075,97.067,517.007,63.42,496.237,42.658z"/>
+                </g>
+              </g>
+            </g>
+            </svg>
+          </div>
+          <div onclick="changeBrush('square')" class="btn tooltip">
+            <p class="tooltiptext">Square</p>
+            <svg
+              fill="#000000"
+              version="1.1"
+              id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 330 330"
+              xml:space="preserve"
+            >
+              <path
+                id="XMLID_523_"
+                d="M315,0H15C6.716,0,0,6.716,0,15v300c0,8.284,6.716,15,15,15h300c8.284,0,15-6.716,15-15V15
+                          C330,6.716,323.285,0,315,0z M300,300H30V30h270V300z"
+              />
+            </svg>
+          </div>
+          <div onclick="changeBrush('circle')" class="btn tooltip">
+            <p class="tooltiptext">Circle</p>
+            <svg
+              fill="#000000"
+              version="1.1"
+              id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 29.107 29.107"
+              xml:space="preserve"
+            >
+              <g>
+                <g id="c149_moon">
+                  <path
+                    id="_x3C_Compound_Path_x3E__7_"
+                    d="M14.558,2.079c6.877,0,12.471,5.597,12.471,12.473c0,6.877-5.594,12.476-12.471,12.476
+                                      c-6.879,0-12.478-5.599-12.478-12.476C2.08,7.676,7.679,2.079,14.558,2.079 M14.558,0C6.563,0,0,6.562,0,14.552
+                                      c0,7.995,6.563,14.555,14.558,14.555s14.549-6.56,14.549-14.555C29.106,6.562,22.552,0,14.558,0L14.558,0z"
+                  />
+                </g>
+                <g id="Capa_1_226_"></g>
+              </g>
+            </svg>
+          </div>
+          <div class="undo-icon btn tooltip">
+            <p class="tooltiptext">Undo Action <span>CTRL + Z</span></p>
+            <svg viewBox="0 0 512 512">
+              <path
+                d="M212.333 224.333H12c-6.627 0-12-5.373-12-12V12C0 5.373 5.373 0 12 0h48c6.627 0 12 5.373 12 12v78.112C117.773 39.279 184.26 7.47 258.175 8.007c136.906.994 246.448 111.623 246.157 248.532C504.041 393.258 393.12 504 256.333 504c-64.089 0-122.496-24.313-166.51-64.215-5.099-4.622-5.334-12.554-.467-17.42l33.967-33.967c4.474-4.474 11.662-4.717 16.401-.525C170.76 415.336 211.58 432 256.333 432c97.268 0 176-78.716 176-176 0-97.267-78.716-176-176-176-58.496 0-110.28 28.476-142.274 72.333h98.274c6.627 0 12 5.373 12 12v48c0 6.627-5.373 12-12 12z"
+              ></path>
+            </svg>
+          </div>
+          <div onclick="clearCanvas()" class="trashIcon btn tooltip">
+            <p class="tooltiptext">Delete Painting</p>
+            <svg viewBox="0 0 448 512">
+              <path
+                d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z"
+              ></path>
+            </svg>
+          </div>
+          <a class="downloadPDF">
+            <div class="download-icon btn tooltip">
+              <p class="tooltiptext">Export PDF</p>
+              <svg
+                fill="#000000"
+                version="1.1"
+                id="Capa_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 490.955 490.955"
+                xml:space="preserve"
+              >
+                <path
+                  id="XMLID_448_"
+                  d="M445.767,308.42l-53.374-76.49v-20.656v-11.366V97.241c0-6.669-2.604-12.94-7.318-17.645L312.787,7.301
+                                  C308.073,2.588,301.796,0,295.149,0H77.597C54.161,0,35.103,19.066,35.103,42.494V425.68c0,23.427,19.059,42.494,42.494,42.494
+                                  h159.307h39.714c1.902,2.54,3.915,5,6.232,7.205c10.033,9.593,23.547,15.576,38.501,15.576c26.935,0-1.247,0,34.363,0
+                                  c14.936,0,28.483-5.982,38.517-15.576c11.693-11.159,17.348-25.825,17.348-40.29v-40.06c16.216-3.418,30.114-13.866,37.91-28.811
+                                  C459.151,347.704,457.731,325.554,445.767,308.42z M170.095,414.872H87.422V53.302h175.681v46.752
+                                  c0,16.655,13.547,30.209,30.209,30.209h46.76v66.377h-0.255v0.039c-17.685-0.415-35.529,7.285-46.934,23.46l-61.586,88.28
+                                  c-11.965,17.134-13.387,39.284-3.722,57.799c7.795,14.945,21.692,25.393,37.91,28.811v19.842h-10.29H170.095z M410.316,345.771
+                                  c-2.03,3.866-5.99,6.271-10.337,6.271h-0.016h-32.575v83.048c0,6.437-5.239,11.662-11.659,11.662h-0.017H321.35h-0.017
+                                  c-6.423,0-11.662-5.225-11.662-11.662v-83.048h-32.574h-0.016c-4.346,0-8.308-2.405-10.336-6.271
+                                  c-2.012-3.866-1.725-8.49,0.783-12.07l61.424-88.064c2.189-3.123,5.769-4.984,9.57-4.984h0.017c3.802,0,7.38,1.861,9.568,4.984
+                                  l61.427,88.064C412.04,337.28,412.328,341.905,410.316,345.771z"
+                />
+              </svg>
+            </div>
+          </a>
+          <article class="colorTab tab">
+            <div>
+              <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                <p>Select Color</p>
+                <p style="cursor: pointer;" onclick="closeAllTabs()">
+                  <svg fill="#ffffff" height="12px" width="12px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    viewBox="0 0 460.775 460.775" xml:space="preserve">
+                  <path d="M285.08,230.397L456.218,59.27c6.076-6.077,6.076-15.911,0-21.986L423.511,4.565c-2.913-2.911-6.866-4.55-10.992-4.55
+                    c-4.127,0-8.08,1.639-10.993,4.55l-171.138,171.14L59.25,4.565c-2.913-2.911-6.866-4.55-10.993-4.55
+                    c-4.126,0-8.08,1.639-10.992,4.55L4.558,37.284c-6.077,6.075-6.077,15.909,0,21.986l171.138,171.128L4.575,401.505
+                    c-6.074,6.077-6.074,15.911,0,21.986l32.709,32.719c2.911,2.911,6.865,4.55,10.992,4.55c4.127,0,8.08-1.639,10.994-4.55
+                    l171.117-171.12l171.118,171.12c2.913,2.911,6.866,4.55,10.993,4.55c4.128,0,8.081-1.639,10.992-4.55l32.709-32.719
+                    c6.074-6.075,6.074-15.909,0-21.986L285.08,230.397z"/>
+                  </svg>
+                </p>
+              </div>
+              <button
+                type="button"
+                onclick="setblue()"
+                class="button"
+                style="background-color: blue"
+              >
+                Blue
+              </button>
+              <button
+                type="button"
+                onclick="setgreen()"
+                class="button"
+                style="background-color: green"
+              >
+                Green
+              </button>
+              <button
+                type="button"
+                onclick="setred()"
+                class="button"
+                style="background-color: red"
+              >
+                Red
+              </button>
+              <button
+                type="button"
+                onclick="setyellow()"
+                class="button"
+                style="background-color: yellow"
+              >
+                Yellow
+              </button>
+            </div>
+          </article>
+          <article class="brushTab tab">
+            <div>
+              <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                <p>Input Info</p>
+                <p style="cursor: pointer;" onclick="closeAllTabs()">
+                  <svg fill="#ffffff" height="12px" width="12px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    viewBox="0 0 460.775 460.775" xml:space="preserve">
+                  <path d="M285.08,230.397L456.218,59.27c6.076-6.077,6.076-15.911,0-21.986L423.511,4.565c-2.913-2.911-6.866-4.55-10.992-4.55
+                    c-4.127,0-8.08,1.639-10.993,4.55l-171.138,171.14L59.25,4.565c-2.913-2.911-6.866-4.55-10.993-4.55
+                    c-4.126,0-8.08,1.639-10.992,4.55L4.558,37.284c-6.077,6.075-6.077,15.909,0,21.986l171.138,171.128L4.575,401.505
+                    c-6.074,6.077-6.074,15.911,0,21.986l32.709,32.719c2.911,2.911,6.865,4.55,10.992,4.55c4.127,0,8.08-1.639,10.994-4.55
+                    l171.117-171.12l171.118,171.12c2.913,2.911,6.866,4.55,10.993,4.55c4.128,0,8.081-1.639,10.992-4.55l32.709-32.719
+                    c6.074-6.075,6.074-15.909,0-21.986L285.08,230.397z"/>
+                  </svg>
+                </p>
+              </div>
+              <br />
+              <label for="logoInput">Logo:</label>
+              <input type="file" id="logoInput" />
+
+              <label for="titleInput">Title:</label>
+              <input type="text" class="inputtext" id="titleInput" /><br />
+
+              <label for="dateInput">Date:</label>
+              <input type="text" class="inputtext" id="dateInput" /><br />
+
+              <label for="textareaInput">Text Area:</label>
+              <textarea
+                id="textareaInput"
+                class="inputtextarea"
+                rows="4"
+                cols="20"
+              ></textarea
+              ><br />
+            </div>
+          </article>
+        </div>
+      </section>
+      <div id="myCanvas"></div>
+    </div>
+  </body>
+</html>
