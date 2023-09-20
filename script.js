@@ -33,14 +33,14 @@ LinearGrad4.setSize(256, 1);
 var globalRenderer;
 var globalShadowCanvas;
 
-function setRender() {
-  var renderer = i2d.canvasLayer("#myCanvas", {}, { enableResize: false });
-  // console.log(renderer.height, renderer.width)
-  renderer.setPixelRatio(1);
-  var shadowCanvas = i2d.canvasLayer(null, {}, { enableResize: false });
-  shadowCanvas.setPixelRatio(1);
-  shadowCanvas.setSize(renderer.width, renderer.height);
+var renderer = i2d.canvasLayer("#myCanvas", {}, { enableResize: false });
+// console.log(renderer.height, renderer.width)
+renderer.setPixelRatio(1);
+var shadowCanvas = i2d.canvasLayer(null, {}, { enableResize: false });
+shadowCanvas.setPixelRatio(1);
+shadowCanvas.setSize(renderer.width, renderer.height);
 
+function setRender() {
   globalRenderer = renderer;
   globalShadowCanvas = shadowCanvas;
 }
@@ -339,8 +339,19 @@ function draw(e) {
 }
 
 function clearCanvas() {
-  globalRenderer.ctx.clearRect(0, 0, globalRenderer.width, globalRenderer.height);
-  globalShadowCanvas.ctx.clearRect(0, 0, globalRenderer.width, globalRenderer.height);
+  renderer.ctx.clearRect(0, 0, globalRenderer.width, globalRenderer.height);
+  shadowCanvas.ctx.clearRect(0, 0, globalRenderer.width, globalRenderer.height);
+
+  setRender();
+
+  // Select all elements with the class 'aaa'
+  const elementsWithClassVistaoCanvas = document.querySelectorAll('.vistao-canvas');
+
+  // Loop through the selected elements and remove each one
+  elementsWithClassVistaoCanvas.forEach(function(element) {
+    element.remove();
+  });
+
 }
 
 function stop(e) {
