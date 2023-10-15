@@ -30,7 +30,7 @@ var LinearGrad4 = i2d.canvasLayer(null, {}, { enableResize: false });
 LinearGrad4.setPixelRatio(1);
 LinearGrad4.setSize(256, 1);
 
-var globalRenderer;
+var globalRenderer; 
 var globalShadowCanvas;
 
 var renderer = i2d.canvasLayer("#myCanvas", {}, { enableResize: false });
