@@ -17,6 +17,7 @@ let textareaInput = document.getElementById("textareaInput").value;
 var radialGrad = i2d.canvasLayer(null, {}, { enableResize: false });
 radialGrad.setPixelRatio(1);
 radialGrad.setSize(100,100);
+
 var LinearGrad1 = i2d.canvasLayer(null, {}, { enableResize: false });
 LinearGrad1.setPixelRatio(1);
 LinearGrad1.setSize(256, 1);
